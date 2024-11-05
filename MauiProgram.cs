@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiNet8MVVMTemplate.ViewModels;
+using MauiNet8MVVMTemplate.Views;
+using Microsoft.Extensions.Logging;
 
 namespace MauiNet8MVVMTemplate;
+
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
@@ -21,6 +24,8 @@ public static class MauiProgram
         mauiAppBuilder.Logging.AddDebug();
 #endif
 
+        mauiAppBuilder.Services.AddSingleton<DemoViewModel>();
+        mauiAppBuilder.Services.AddTransient<DemoView>();
 
         return mauiAppBuilder;
     }
